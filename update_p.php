@@ -9,8 +9,8 @@ $sth = DB::get()->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $sth = DB::get()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $sql = "UPDATE movie SET Title=:Title, Year=:Year, Director=:Director, Rating =:Rating, Genre=:Genre, Runtime=:Runtime, Writer=:Writer,
 Actor=:Actor, Country=:Country,Owned=:Owned, imdbID=:imdbID, addToCart=:addToCart,Released=:Released,Plot=:Plot,Language=:Language,Awards=:Awards,
-Poster=:Poster,Ratings=:Ratings, Metascore=:Metascore, imdbRating=:imdbRating,imdbVotes=:imdbVotes,Type=:Type,totalSeasons=:totalSeasons,Response=:Response
-WHERE MovieID =:MovieID";
+Poster=:Poster,Ratings=:Ratings, Metascore=:Metascore, imdbRating=:imdbRating,imdbVotes=:imdbVotes,Type=:Type,totalSeasons=:totalSeasons,Response=:Response,
+Price=:Price WHERE MovieID =:MovieID";
 $sth = DB::get()->prepare($sql);
 $sth ->bindParam(':Title',$_GET['Title']);
 $sth ->bindParam(':Year',$_GET['Year']);
@@ -37,6 +37,7 @@ $sth ->bindParam(':imdbVotes',$_GET['imdbVotes']);
 $sth ->bindParam(':Type',$_GET['Type']);
 $sth ->bindParam(':totalSeasons',$_GET['totalSeasons']);
 $sth ->bindParam(':Response',$_GET['Response']);
+$sth ->bindParam(':Price',$_GET['Price']);
 $sth ->execute();
 // execute the query
 header('Location: index.php');

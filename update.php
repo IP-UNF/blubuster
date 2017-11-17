@@ -4,7 +4,7 @@
 require 'db.class.php';
 $MovieID=$_GET['MovieID'];
 
-$sql = "SELECT Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, Owned, imdbID,Language,Awards,Poster,Ratings,Metascore,imdbRating,imdbVotes,Type,totalSeasons,Response FROM movie Where MovieID = " .$MovieID;
+$sql = "SELECT Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, imdbID,Language,Awards,Poster,Ratings,Metascore,imdbRating,imdbVotes,Type,totalSeasons,Response,Price FROM movie Where MovieID = " .$MovieID;
 $result = DB::get()->query($sql);
     while($row = $result->fetch())
     {
@@ -29,6 +29,7 @@ $result = DB::get()->query($sql);
       $Type=$row["Type"];
       $totalSeasons=$row["totalSeasons"];
       $Response=$row["Response"];
+      $Price=$row["Price"];
     }
     $result=null;
 ?>
@@ -68,41 +69,39 @@ $result = DB::get()->query($sql);
       <td>IMDB Number:</td><td><input type='text' name='imdbID'value='<?php echo $imdbID; ?>'></td>
     </tr>
     <tr>
-    <td>Language:</td><td><input type='text' name='Language'value='<?php $Language; ?>'></td>
+    <td>Language:</td><td><input type='text' name='Language'value='<?php echo $Language; ?>'></td>
   </tr>
   <tr>
-    <td>Awards:</td><td><input type='text' name='Awards'value='<?php $Awards; ?>'></td>
+    <td>Awards:</td><td><input type='text' name='Awards'value='<?php  echo $Awards; ?>'></td>
   </tr>
   <tr>
-    <td>Poster:</td><td><input type='text' name='Poster'value='<?php $Poster; ?>'></td>
+    <td>Poster:</td><td><input type='text' name='Poster'value='<?php echo $Poster; ?>'></td>
   </tr>
   <tr>
-    <td>Ratings:</td><td><input type='text' name='Ratings'value='<?php $Ratings; ?>'></td>
+    <td>Ratings:</td><td><input type='text' name='Ratings'value='<?php echo $Ratings; ?>'></td>
   </tr>
   <tr>
-    <td>Metascore:</td><td><input type='text' name='Metascore'value='<?php $Metascore; ?>'></td>
+    <td>Metascore:</td><td><input type='text' name='Metascore'value='<?php echo $Metascore; ?>'></td>
   </tr>
   <tr>
-    <td>imdbRating:</td><td><input type='text' name='imdbRating'value='<?php $imdbRating; ?>'></td>
+    <td>imdbRating:</td><td><input type='text' name='imdbRating'value='<?php echo $imdbRating; ?>'></td>
   </tr>
   <tr>
-    <td>imdbVotes:</td><td><input type='text' name='imdbVotes'value='<?php $imdbVotes; ?>'></td>
+    <td>imdbVotes:</td><td><input type='text' name='imdbVotes'value='<?php echo $imdbVotes; ?>'></td>
   </tr>
   <tr>
-    <td>Type:</td><td><input type='text' name='Type'value='<?php $Type; ?>'></td>
+    <td>Type:</td><td><input type='text' name='Type'value='<?php echo $Type; ?>'></td>
   </tr>
   <tr>
-    <td>totalSeasons:</td><td><input type='text' name='totalSeasons'value='<?php $totalSeasons; ?>'></td>
+    <td>totalSeasons:</td><td><input type='text' name='totalSeasons'value='<?php echo $totalSeasons; ?>'></td>
   </tr>
   <tr>
-    <td>Response:</td><td><input type='text' name='Response' value='<?php $Response; ?>'></td>
-  </tr>
-  <tr>
-    <td>Add Movie to Shopping Cart:</td><td><input type='radio' name='addToCart' value='1'></td>
+    <td>Response:</td><td><input type='text' name='Response' value='<?php echo $Response; ?>'></td>
   </tr>
     <tr>
-      <td>Is Movie Owned:</td><td><input type='checkbox' name='Owned' value='1' ></td>
+      <td>Price:</td><td><input type='text' name='Price' value='<?php echo $Price; ?>'></td>
     </tr>
+    <tr>
     <tr>
       <td>Add to Shopping Cart:</td><td><input type='radio' name='addToCart' value='1' ></td>
     </tr>

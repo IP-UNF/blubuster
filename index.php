@@ -42,11 +42,11 @@ $res = DB::get()->prepare('SELECT COUNT(*) FROM movie');
 $res->execute();
 $num_rows = $res->fetchColumn();
 
-$sql = "SELECT MovieID,Poster, Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, Owned, imdbID, addToCart FROM movie";
+$sql = "SELECT MovieID,Poster, Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, imdbID, addToCart, Price FROM movie";
 $result =DB::get()->query($sql);
   if ($num_rows > 0) {
     echo "<table border='1'>";
-    echo '<tr><td>Select</td><td></td><td>Title</td><td>Year</td><td>Director</td><td>Rating</td><td>Genre</td><td>Runtime</td><td>Writer</td><td>Actor</td><td>Country</td><td>IMDB #</td><td>In Shopping Cart</td><td>Owned</td></tr>';
+    echo '<tr><td>Select</td><td></td><td>Title</td><td>Year</td><td>Director</td><td>Rating</td><td>Genre</td><td>Runtime</td><td>Writer</td><td>Actor</td><td>Country</td><td>IMDB #</td><td>Price</td><td>In Shopping Cart</td></tr>';
     while($row = $result->fetch())
     {
       $radio=$row["MovieID"];
@@ -71,16 +71,9 @@ $result =DB::get()->query($sql);
       echo "<td>".$row["Actor"]."</td>";
       echo "<td>". $row["Country"]."</td>";
       echo "<td>". $row["imdbID"]."</td>";
+      echo "<td>". $row["Price"]."</td>";
       //if 1 print yes 0=no
       if (($row['addToCart'])>0)
-      {
-        echo "<td>Yes</td>";
-      }
-      else {
-        echo "<td>No</td>";
-      }
-      //if 1 print yes 0=no
-      if (($row['Owned'])>0)
       {
         echo "<td>Yes</td>";
       }

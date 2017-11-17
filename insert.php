@@ -8,8 +8,8 @@ require 'db.class.php';
 //insert new item into database using prepared statements
 $sth = DB::get()->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $sth = DB::get()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sth = DB::get()->prepare("INSERT INTO movie (Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, Owned, imdbID, addToCart,Released,Plot,Language,Awards,Poster,Ratings,Metascore,imdbRating,imdbVotes,Type,totalSeasons,Response)
-VALUES (:Title, :Year, :Director,:Rating, :Genre,:Runtime,:Writer,:Actor,:Country,:Owned,:imdbID,:addToCart,:Released,:Plot,:Language,:Awards,:Poster,:Ratings,:Metascore,:imdbRating,:imdbVotes,:Type,:totalSeasons,:Response)");
+$sth = DB::get()->prepare("INSERT INTO movie (Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, Owned, imdbID, addToCart,Released,Plot,Language,Awards,Poster,Ratings,Metascore,imdbRating,imdbVotes,Type,totalSeasons,Response,Price)
+VALUES (:Title, :Year, :Director,:Rating, :Genre,:Runtime,:Writer,:Actor,:Country,:Owned,:imdbID,:addToCart,:Released,:Plot,:Language,:Awards,:Poster,:Ratings,:Metascore,:imdbRating,:imdbVotes,:Type,:totalSeasons,:Response,:Price)");
 $sth ->bindParam(':Title',$_GET['Title']);
 $sth ->bindParam(':Year',$_GET['Year']);
 $sth ->bindParam(':Director',$_GET['Director']);
@@ -34,6 +34,7 @@ $sth ->bindParam(':imdbVotes',$_GET['imdbVotes']);
 $sth ->bindParam(':Type',$_GET['Type']);
 $sth ->bindParam(':totalSeasons',$_GET['totalSeasons']);
 $sth ->bindParam(':Response',$_GET['Response']);
+$sth ->bindParam(':Price',$_GET['Price']);
 $sth ->execute();
 header('Location: index.php');
 $sth =null;

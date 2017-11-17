@@ -160,6 +160,9 @@ function addMovie()
           <td>Is Movie Owned:</td><td><input type='checkbox' name='Owned' value='1'></td>
         </tr>
         <tr>
+          <td>Price:</td><td><input type='text' name='Price'value=''></td>
+        </tr>
+        <tr>
           <td colspan='2'><input type='submit' value='Add Record' ></td>
         </tr>
       </table>

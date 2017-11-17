@@ -32,93 +32,30 @@
   <div id="movies" class="row"></div>
   </div>
   <div class="container" id ="movies">
-  <form action='insert.php' method='get'>
-    <h1>Add a Movie to Your Database</h1>
-  <table aligin="center">
-  	<tr>
-  		<td>Movie Title:</td><td><input type='text' name='Title'></td>
-  	</tr>
-    <tr>
-      <td>Year Released:</td><td><input type='text' name='Year'></td>
-    </tr>
-    <tr>
-      <td>Director:</td><td><input type='text' name='Director'></td>
-    </tr>
-    <tr>
-    <td>Rating:</td><td>
-    <select name="Rating">
-    <?php
-    require 'db.class.php';
-    $sql = "SELECT Rating FROM rating";
-    $result = DB::get()->query($sql);
-    while ($row = $result->fetch())
-    {
-    echo '<option value="'.$row['Rating'].'">' . $row['Rating'] . "</option>";
-    }
-    $result=null;
-    ?>
-    </select></td>
-    </tr>
-    <tr>
-      <td>Genre:</td><td><input type='text' name='Genre'></td>
-    </tr>
-    <tr>
-      <td>Runtime:</td><td><input type='text' name='Runtime'></td>
-    </tr>
-    <tr>
-      <td>Writer:</td><td><input type='text' name='Writer'></td>
-    </tr>
-    <tr>
-      <td>Actor:</td><td><input type='text' name='Actor'></td>
-    </tr>
-    <tr>
-      <td>Production Comapany:</td><td><input type='text' name='Country'></td>
-    </tr>
-    <tr>
-      <td>IMDB Number (*required if you want poster):</td><td><input type='text' name='imdbID'></td>
-    </tr>
-    <tr>
-      <td>Is Movie Owned:</td><td><input type='checkbox' value="1" name='Owned'></td>
-    </tr>
-    <tr>
-      <td>Add to Shopping Cart:</td><td><input type='radio' value="1" name='addToCart'></td>
-    </tr>
-    <tr>
-      <td colspan='2'><input type='submit' value='Add Movie'></td>
-    </tr>
-    <tr>
-      <td colspan='2'><a href="../blubuster/movieindex.html" class ="button">Search OMDB Database</a></td>
-    </tr>
-  </table>
-  </form>
-</form>
+
 <div class="container col-md-12">
 <form action='' method='get' name='myForm'>
 <?php
+require 'db.class.php';
 //get number of items in table
 $res = DB::get()->prepare('SELECT COUNT(*) FROM movie');
 $res->execute();
 $num_rows = $res->fetchColumn();
 
-$sql = "SELECT MovieID, Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, Owned, imdbID, addToCart FROM movie";
+$sql = "SELECT MovieID,Poster, Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, Owned, imdbID, addToCart FROM movie";
 $result =DB::get()->query($sql);
   if ($num_rows > 0) {
     echo "<table border='1'>";
     echo '<tr><td>Select</td><td></td><td>Title</td><td>Year</td><td>Director</td><td>Rating</td><td>Genre</td><td>Runtime</td><td>Writer</td><td>Actor</td><td>Country</td><td>IMDB #</td><td>In Shopping Cart</td><td>Owned</td></tr>';
     while($row = $result->fetch())
     {
-
       $radio=$row["MovieID"];
-      $poster=$row["imdbID"];
       echo "<tr>";
       echo "<td><input type='radio' name='MovieID' value='$radio'></td>";
       //gets poster for each item in database to display
-      if($poster!=NULL)
+      if($row["Poster"]!=NULL)
       {
-        $api =file_get_contents('http://www.omdbapi.com?i='.$poster.'&apikey=6bce83a9');
-        $json = json_decode($api, true);
-        $moviePoster = $json['Poster'];
-        echo "<td><img src =". $moviePoster. "</td>";
+        echo "<td><img src =". $row["Poster"]. "</td>";
       }//end if
       else
       {
@@ -160,7 +97,7 @@ $result =DB::get()->query($sql);
 ?>
 <input type='button' value='Delete Record' onClick='deleteRecord()'>
 <input type='button' value='Update Record' onClick='updateRecord()'>
-<a href="../assign6/movieindex.html" class ="button">Search OMDB Database</a></button>
+<a href="../blubuster/movieindex.html">Add New Items  OMDB Database</a>
 </form>
 </div>
 </div>

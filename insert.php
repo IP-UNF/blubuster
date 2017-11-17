@@ -8,8 +8,8 @@ require 'db.class.php';
 //insert new item into database using prepared statements
 $sth = DB::get()->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $sth = DB::get()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sth = DB::get()->prepare("INSERT INTO movie (Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, Owned, imdbID, addToCart)
-VALUES (:Title, :Year, :Director,:Rating, :Genre,:Runtime,:Writer,:Actor,:Country,:Owned,:imdbID,:addToCart)");
+$sth = DB::get()->prepare("INSERT INTO movie (Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, Owned, imdbID, addToCart,Released,Plot,Language,Awards,Poster,Ratings,Metascore,imdbRating,imdbVotes,Type,totalSeasons,Response)
+VALUES (:Title, :Year, :Director,:Rating, :Genre,:Runtime,:Writer,:Actor,:Country,:Owned,:imdbID,:addToCart,:Released,:Plot,:Language,:Awards,:Poster,:Ratings,:Metascore,:imdbRating,:imdbVotes,:Type,:totalSeasons,:Response)");
 $sth ->bindParam(':Title',$_GET['Title']);
 $sth ->bindParam(':Year',$_GET['Year']);
 $sth ->bindParam(':Director',$_GET['Director']);
@@ -22,6 +22,18 @@ $sth ->bindParam(':Country',$_GET['Country']);
 $sth ->bindParam(':Owned',$_GET['Owned']);
 $sth ->bindParam(':imdbID',$_GET['imdbID']);
 $sth ->bindParam(':addToCart',$_GET['addToCart']);
+$sth ->bindParam(':Released',$_GET['Released']);
+$sth ->bindParam(':Plot',$_GET['Plot']);
+$sth ->bindParam(':Language',$_GET['Language']);
+$sth ->bindParam(':Awards',$_GET['Awards']);
+$sth ->bindParam(':Poster',$_GET['Poster']);
+$sth ->bindParam(':Ratings',$_GET['Ratings']);
+$sth ->bindParam(':Metascore',$_GET['Metascore']);
+$sth ->bindParam(':imdbRating',$_GET['imdbRating']);
+$sth ->bindParam(':imdbVotes',$_GET['imdbVotes']);
+$sth ->bindParam(':Type',$_GET['Type']);
+$sth ->bindParam(':totalSeasons',$_GET['totalSeasons']);
+$sth ->bindParam(':Response',$_GET['Response']);
 $sth ->execute();
 header('Location: index.php');
 $sth =null;

@@ -38,9 +38,9 @@ function movieSelected(id)
   return false;
 }
 //used for information panel if needed
-function getMovie(movieId)
+function getMovie()
 {
-    //let movieId=sessionStorage.getItem('movieId');
+    let movieId=sessionStorage.getItem('movieId');
     axios.get('http://www.omdbapi.com?i='+movieId+'&apikey=6bce83a9')
     .then((response)=>{
       console.log(response);
@@ -116,6 +116,42 @@ function addMovie()
         </tr>
         <tr>
           <td>IMDB Number:</td><td><input type='text' name='imdbID'value='${movie.imdbID}'></td>
+        </tr>
+        <tr>
+          <td>Released:</td><td><input type='text' name='Released'value='${movie.Released}'></td>
+        </tr>
+        <tr>
+          <td>Plot:</td><td><input type='text' name='Plot'value='${movie.Plot}'></td>
+        </tr>
+        <tr>
+          <td>Language:</td><td><input type='text' name='Language'value='${movie.Language}'></td>
+        </tr>
+        <tr>
+          <td>Awards:</td><td><input type='text' name='Awards'value='${movie.Awards}'></td>
+        </tr>
+        <tr>
+          <td>Poster:</td><td><input type='text' name='Poster'value='${movie.Poster}'></td>
+        </tr>
+        <tr>
+          <td>Ratings:</td><td><input type='text' name='Ratings'value='${movie.Ratings}'></td>
+        </tr>
+        <tr>
+          <td>Metascore:</td><td><input type='text' name='Metascore'value='${movie.Metascore}'></td>
+        </tr>
+        <tr>
+          <td>imdbRating:</td><td><input type='text' name='imdbRating'value='${movie.imdbRating}'></td>
+        </tr>
+        <tr>
+          <td>imdbVotes:</td><td><input type='text' name='imdbVotes'value='${movie.imdbVotes}'></td>
+        </tr>
+        <tr>
+          <td>Type:</td><td><input type='text' name='Type'value='${movie.Type}'></td>
+        </tr>
+        <tr>
+          <td>totalSeasons:</td><td><input type='text' name='totalSeasons'value='${movie.totalSeasons}'></td>
+        </tr>
+        <tr>
+          <td>Response:</td><td><input type='text' name='Response'value='${movie.Response}'></td>
         </tr>
         <tr>
           <td>Add Movie to Shopping Cart:</td><td><input type='radio' name='addToCart' value='1'></td>

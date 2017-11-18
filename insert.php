@@ -36,6 +36,6 @@ $sth ->bindParam(':totalSeasons',$_GET['totalSeasons']);
 $sth ->bindParam(':Response',$_GET['Response']);
 $sth ->bindParam(':Price',$_GET['Price']);
 $sth ->execute();
-header('Location: index.php');
+header('Location: inventory.php');
 $sth =null;
 ?>

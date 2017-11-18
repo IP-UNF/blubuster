@@ -40,6 +40,6 @@ $sth ->bindParam(':Response',$_GET['Response']);
 $sth ->bindParam(':Price',$_GET['Price']);
 $sth ->execute();
 // execute the query
-header('Location: index.php');
+header('Location: inventory.php');
 $sth = null;
 ?>

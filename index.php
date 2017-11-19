@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?>
 <html lang="en">
 
   <head>
@@ -15,14 +16,17 @@
 
     <!-- Custom styles for this template -->
     <link href="css/shop-homepage.css" rel="stylesheet">
+
     <script>
-    	function movieDetails()
+    	function movieDetails(MovieID)
     	{
-    		document.myForm.action='movieDetails.php';
-    		document.myForm.submit();
+        document.cookie = "MovieID="+MovieID;
+        sessionStorage.setItem('sent', MovieID);
+    		window.open("movieDetails.php");
     	}
       </script>
     <?php
+
     require 'db.class.php';
     function getOneMovie($id)
     {
@@ -36,17 +40,13 @@
           $Title=$row["Title"];
         }
         $result=null;
-        echo '  <form action="" method="get" name="myForm">
-            <a href="#"><img class="card-img-top" src='.$Poster.' alt=""></a>
+        echo '
+            <img class="card-img-top" src='. htmlspecialchars($Poster).' alt="Poster">
             <div class="card-body">
               <h4 class="card-title">
-               <p onClick="movieDetails()" value='.$MovieID.' name ="MovieID">'.$Title.'</p>
+               <p  onClick="movieDetails('.$id.')" value='. htmlspecialchars($id).' id ="MovieID" name ="MovieID">' .htmlspecialchars($Title).'</p>
               </h4>
               <h5>'.$Price.'</h5>
-              <p class="card-text"></p>
-            </div></form>
-            <div class="card-footer">
-              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
             </div>
           </div>
         </div>';
@@ -135,25 +135,29 @@
               <div class="card h-100">
               <?php getOneMovie(92);?>
 
-          <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                  <?php getOneMovie(93);?>
 
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                  <?php getOneMovie(94);?>
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <?php getOneMovie(93);?>
 
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <?php getOneMovie(95);?>
 
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <?php getOneMovie(96);?>
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <?php getOneMovie(94);?>
 
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <?php getOneMovie(97);?>
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                  <?php getOneMovie(95);?>
+
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                  <?php getOneMovie(96);?>
+
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                  <?php getOneMovie(97);?>
 
           </div>
           <!-- /.row -->

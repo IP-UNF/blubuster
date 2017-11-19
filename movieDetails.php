@@ -1,8 +1,13 @@
 <html>
 <head>
+  <script>
+  var data = sessionStorage.getItem('sent');
+  </script>
 <?php
+session_start();
+$MovieID=$_COOKIE["MovieID"];
 require 'db.class.php';
-$MovieID=$_GET['MovieID'];
+
 
 $sql = "SELECT Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, imdbID,Language,Awards,Poster,Ratings,Metascore,imdbRating,imdbVotes,Type,totalSeasons,Response,Price FROM movie Where MovieID = " .$MovieID;
 $result = DB::get()->query($sql);
@@ -17,7 +22,6 @@ $result = DB::get()->query($sql);
       $Writer=$row["Writer"];
       $Actor=$row["Actor"];
       $Country=$row["Country"];
-      $Owned=$row["Owned"];
       $imdbID=$row["imdbID"];
       $Language=$row["Language"];
       $Awards=$row["Awards"];
@@ -35,6 +39,7 @@ $result = DB::get()->query($sql);
 ?>
 </head>
 <body>
+
   <form action='' method='get'>
     <input type='hidden' value='<?php echo $MovieID; ?>' name='MovieID'>
   <table>

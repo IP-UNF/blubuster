@@ -1,10 +1,15 @@
+<script>
+  function addToCart()
+  {
 
+  }
+</script>
 <?php
 include 'header.php';
 require 'db.class.php';
 session_start();
 $MovieID=$_COOKIE["MovieID"];
-$sql = "SELECT Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, imdbID,Language,Awards,Poster,Ratings,Metascore,imdbRating,imdbVotes,Type,totalSeasons,Response,Price FROM movie Where MovieID = " .$MovieID;
+$sql = "SELECT Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, imdbID,Language,Awards,Poster,Metascore,imdbRating,imdbVotes,Type,totalSeasons,Response,Price FROM movie Where MovieID = " .$MovieID;
 $result = DB::get()->query($sql);
     while($row = $result->fetch())
     {
@@ -21,7 +26,6 @@ $result = DB::get()->query($sql);
       $Language=$row["Language"];
       $Awards=$row["Awards"];
       $Poster=$row["Poster"];
-      $Ratings=$row["Ratings"];
       $Metascore=$row["Metascore"];
       $imdbRating=$row["imdbRating"];
       $imdbVotes=$row["imdbVotes"];
@@ -37,72 +41,71 @@ $result = DB::get()->query($sql);
 
   <form action='' method='get'>
     <input type='hidden' value='<?php echo $MovieID; ?>' name='MovieID'>
-  <table>
+  <table class="table">
     <tr>
-      <td>Movie Title:</td><td><input type='text' name='Title' value='<?php echo $Title; ?>'></td>
+      <td>Poster:</td><td><img src="<?php echo $Poster; ?>"</td>
     </tr>
     <tr>
-      <td>Year Released:</td><td><input type='text' name='Year' value='<?php echo $Year; ?>'></td>
+      <td>Movie Title:</td><td><?php echo $Title; ?></td>
     </tr>
     <tr>
-      <td>Director:</td><td><input type='text' name='Director' value='<?php echo $Director; ?>'></td>
+      <td>Year Released:</td><td><?php echo $Year; ?></td>
     </tr>
     <tr>
-      <td>Rating:</td><td><input type='text' name='Rating'value='<?php echo $Rating; ?>'></td>
+      <td>Director:</td><td><?php echo $Director; ?></td>
     </tr>
     <tr>
-      <td>Genre:</td><td><input type='text' name='Genre' value='<?php echo $Genre; ?>'></td>
+      <td>Rating:</td><td><?php echo $Rating; ?></td>
     </tr>
     <tr>
-      <td>Runtime:</td><td><input type='text' name='Runtime' value='<?php echo $Runtime; ?>'></td>
+      <td>Genre:</td><td><?php echo $Genre; ?></td>
     </tr>
     <tr>
-      <td>Writer:</td><td><input type='text' name='Writer' value='<?php echo $Writer; ?>'></td>
+      <td>Runtime:</td><td><?php echo $Runtime; ?></td>
     </tr>
     <tr>
-      <td>Actor:</td><td><input type='text' name='Actor' value='<?php echo $Actor; ?>'></td>
+      <td>Writer:</td><td><?php echo $Writer; ?></td>
     </tr>
     <tr>
-      <td>Production Comapany:</td><td><input type='text' name='Country'value='<?php echo $Country; ?>'></td>
+      <td>Actor:</td><td><?php echo $Actor; ?></td>
     </tr>
     <tr>
-      <td>IMDB Number:</td><td><input type='text' name='imdbID'value='<?php echo $imdbID; ?>'></td>
+      <td>Production Comapany:</td><td><?php echo $Country; ?></td>
     </tr>
     <tr>
-    <td>Language:</td><td><input type='text' name='Language'value='<?php echo $Language; ?>'></td>
+      <td>IMDB Number:</td><td><?php echo $imdbID; ?></td>
+    </tr>
+    <tr>
+    <td>Language:</td><td><?php echo $Language; ?></td>
   </tr>
   <tr>
-    <td>Awards:</td><td><input type='text' name='Awards'value='<?php  echo $Awards; ?>'></td>
+    <td>Awards:</td><td><?php  echo $Awards; ?></td>
   </tr>
   <tr>
-    <td>Poster:</td><td><input type='text' name='Poster'value='<?php echo $Poster; ?>'></td>
+    <td>Metascore:</td><td><?php echo $Metascore; ?></td>
+  </tr> 
+  <tr>
+    <td>imdbRating:</td><td><?php echo $imdbRating; ?></td>
   </tr>
   <tr>
-    <td>Ratings:</td><td><input type='text' name='Ratings'value='<?php echo $Ratings; ?>'></td>
+    <td>imdbVotes:</td><td><?php echo $imdbVotes; ?></td>
   </tr>
   <tr>
-    <td>Metascore:</td><td><input type='text' name='Metascore'value='<?php echo $Metascore; ?>'></td>
+    <td>Type:</td><td><?php echo $Type; ?></td>
   </tr>
   <tr>
-    <td>imdbRating:</td><td><input type='text' name='imdbRating'value='<?php echo $imdbRating; ?>'></td>
+    <td>totalSeasons:</td><td><?php echo $totalSeasons; ?></td>
   </tr>
   <tr>
-    <td>imdbVotes:</td><td><input type='text' name='imdbVotes'value='<?php echo $imdbVotes; ?>'></td>
-  </tr>
-  <tr>
-    <td>Type:</td><td><input type='text' name='Type'value='<?php echo $Type; ?>'></td>
-  </tr>
-  <tr>
-    <td>totalSeasons:</td><td><input type='text' name='totalSeasons'value='<?php echo $totalSeasons; ?>'></td>
-  </tr>
-  <tr>
-    <td>Response:</td><td><input type='text' name='Response' value='<?php echo $Response; ?>'></td>
+    <td>Response:</td><td><?php echo $Response; ?></td>
   </tr>
     <tr>
-      <td>Price:</td><td><input type='text' name='Price' value='<?php echo $Price; ?>'></td>
+      <td>Price:</td><td><?php echo $Price; ?></td>
     </tr>
-    <tr>
   </table>
   </form>
-</form>
+  <table class =table>
+    <tr>
+      <input type='button' value='Add to Cart' onClick='addToCart()'>
+    </tr>
 <?php include 'footer.php';?>

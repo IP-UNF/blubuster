@@ -24,7 +24,7 @@
         }
         $result=null;
         echo '
-            <img class="card-img-top" src='. htmlspecialchars($Poster).' alt="Poster">
+            <img class="card-img-top"onClick="movieDetails('.$id.')"  src='. htmlspecialchars($Poster).' alt="Poster">
             <div class="card-body">
               <h4 class="card-title">
                <p  onClick="movieDetails('.$id.')" value='. htmlspecialchars($id).' id ="MovieID" name ="MovieID">' .htmlspecialchars($Title).'</p>

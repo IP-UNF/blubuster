@@ -29,7 +29,7 @@ $num_rows = $res->fetchColumn();
 $sql = "SELECT MovieID,Poster, Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, imdbID, addToCart, Price FROM movie";
 $result =DB::get()->query($sql);
   if ($num_rows > 0) {
-    echo "<table border='1'>";
+    echo "<table class ='table' align='left' border='1'>";
     echo '<tr><td>Select</td><td>Title</td><td>Year</td><td>Director</td><td>Rating</td><td>Genre</td><td>Runtime</td><td>Writer</td><td>Actor</td><td>Country</td><td>IMDB #</td><td>Price</td><td>In Shopping Cart</td></tr>';
     while($row = $result->fetch())
     {

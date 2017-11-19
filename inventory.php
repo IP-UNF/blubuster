@@ -25,7 +25,6 @@ require 'db.class.php';
 $res = DB::get()->prepare('SELECT COUNT(*) FROM movie');
 $res->execute();
 $num_rows = $res->fetchColumn();
-
 $sql = "SELECT MovieID,Poster, Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, imdbID, addToCart, Price FROM movie";
 $result =DB::get()->query($sql);
   if ($num_rows > 0) {

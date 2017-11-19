@@ -10,59 +10,37 @@
   </script>
   <?php
   require 'db.class.php';
-  function getOneMovie($id)
+  function getOneMovie()
   {
-      $MovieID =$id;
-      $sql = "SELECT Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, imdbID,Language,Awards,Poster,Ratings,Metascore,imdbRating,
-      imdbVotes,Type,totalSeasons,Response,Price FROM movie Where MovieID = " .$MovieID;
+      $res = DB::get()->prepare('SELECT COUNT(*) FROM movie');
+      $res->execute();
+      $num_rows = $res->fetchColumn();
+      //$MovieID =$id;
+      $sql = "SELECT MovieID, Title, Year, Director, Rating, Genre, Runtime, Writer, Actor, Country, imdbID,Language,Awards,Poster,Ratings,Metascore,imdbRating,
+      imdbVotes,Type,totalSeasons,Response,Price FROM movie";
+      $result = DB::get()->prepare($sql);
       $result = DB::get()->query($sql);
+      if ($num_rows > 0){
         while($row = $result->fetch())
         {
-          $Poster=$row["Poster"];
-          $Price=$row["Price"];
-          $Title=$row["Title"];
+          echo ' <div class="col-lg-4 col-md-6 mb-4">';
+          echo '  <div class="card h-100">';
+          echo '  <img class="card-img-top"onClick="movieDetails()"  src='. $row["Poster"].' alt="Poster">';
+          echo '   <div class="card-body">';
+          echo '     <h4 class="card-title">';
+          echo '      <p  onClick="movieDetails('.$row["MovieID"].')"  id ="MovieID" name ="MovieID">' .$row["Title"].'</p>';
+          echo '     </h4>';
+          echo '    <h5>'.$row["Price"].'</h5>';
+          echo '  </div>';
+          echo ' </div>';
+          echo ' </div>';
         }
         $result=null;
-        echo '
-            <img class="card-img-top"onClick="movieDetails('.$id.')"  src='. htmlspecialchars($Poster).' alt="Poster">
-            <div class="card-body">
-              <h4 class="card-title">
-               <p  onClick="movieDetails('.$id.')" value='. htmlspecialchars($id).' id ="MovieID" name ="MovieID">' .htmlspecialchars($Title).'</p>
-              </h4>
-              <h5>'.$Price.'</h5>
-            </div>
-          </div>
-        </div>';
-  }
+      }
+    }
   ?>
   </head>
     <?php include'body.php';?>
           <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-              <?php getOneMovie(92);?>
-
-
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <?php getOneMovie(93);?>
-
-
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <?php getOneMovie(94);?>
-
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                  <?php getOneMovie(95);?>
-
-
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                  <?php getOneMovie(96);?>
-
-
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                  <?php getOneMovie(97);?>
+              <?php getOneMovie();?>
   <?php include 'footer.php';?>

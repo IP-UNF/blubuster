@@ -1,6 +1,6 @@
-<html>
-<head>
+
 <?php
+include 'header.php';
 require 'db.class.php';
 $MovieID=$_GET['MovieID'];
 
@@ -17,7 +17,6 @@ $result = DB::get()->query($sql);
       $Writer=$row["Writer"];
       $Actor=$row["Actor"];
       $Country=$row["Country"];
-      $Owned=$row["Owned"];
       $imdbID=$row["imdbID"];
       $Language=$row["Language"];
       $Awards=$row["Awards"];
@@ -34,7 +33,7 @@ $result = DB::get()->query($sql);
     $result=null;
 ?>
 </head>
-<body>
+<?php include'body.php';?>
   <form action='update_p.php' method='get'>
     <input type='hidden' value='<?php echo $MovieID; ?>' name='MovieID'>
   <table>
@@ -112,5 +111,4 @@ $result = DB::get()->query($sql);
   </table>
   </form>
 </form>
-</body>
-</html>
+<?php include 'footer.php';?>

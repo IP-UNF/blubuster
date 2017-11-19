@@ -28,7 +28,7 @@
           echo '  <img class="card-img-top"onClick="movieDetails('.$row["MovieID"].')"  src='. $row["Poster"].' alt="Poster">';
           echo '   <div class="card-body">';
           echo '     <h4 class="card-title">';
-          echo '      <p  onClick="movieDetails('.$row["MovieID"].')" value='.$id.' id ="MovieID" name ="MovieID">' .$row["Title"].'</p>';
+          echo '      <p  onClick="movieDetails('.$row["MovieID"].')"  id ="MovieID" name ="MovieID">' .$row["Title"].'</p>';
           echo '     </h4>';
           echo '    <h5>'.$row["Price"].'</h5>';
           echo '  </div>';

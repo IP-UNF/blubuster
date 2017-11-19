@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>BluBuster Blu-Ray Sales</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,8 +21,7 @@
     	function movieDetails(MovieID)
     	{
         document.cookie = "MovieID="+MovieID;
-        sessionStorage.setItem('sent', MovieID);
-    		window.open("movieDetails.php");
+    		window.open("movieDetails.php",'_self');
     	}
       </script>
     <?php
@@ -78,7 +77,7 @@
               <a class="nav-link" href="./inventory.php">Add Inventory</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="#">Login</a>
             </li>
           </ul>
         </div>
@@ -92,11 +91,11 @@
 
         <div class="col-lg-3">
 
-          <h1 class="my-4">Shop Name</h1>
+          <h1 class="my-4">BluBuster</h1>
           <div class="list-group">
-            <a href="#" class="list-group-item">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
+            <a href="#" class="list-group-item">Comedy</a>
+            <a href="#" class="list-group-item">Horror</a>
+            <a href="#" class="list-group-item">Sci-Fi</a>
           </div>
 
         </div>

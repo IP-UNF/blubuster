@@ -1,7 +1,7 @@
 <?php include 'header.php';?>
 <?phpsession_start();?>
 <?php include 'body.php';?>
-<form action="/action_page.php">
+<form action="./insertCustomer.php" method="post">
   <div class="container">
     <table class ="table">
 
@@ -24,13 +24,13 @@
     <td><input type="text" placeholder="Enter Zip Code" name="ZipCode" required></td></tr>
 
     <tr><td><label><b>Email</b></label></td>
-    <td><input type="text" placeholder="Enter Email" name="email" required></td></tr>
+    <td><input type="text" placeholder="Enter Email" name="Email" required></td></tr>
 
     <tr><td><label><b>Password</b></label></td>
-    <td> <input type="password" placeholder="Enter Password" name="psw" required></td></tr>
+    <td> <input type="password" placeholder="Enter Password" name="Password" required></td></tr>
 
     <tr><td><label><b>Repeat Password</b></label></td>
-    <td><input type="password" placeholder="Repeat Password" name="psw-repeat" required></td></tr>
+    <td><input type="password" placeholder="Repeat Password" name="Password-repeat" required></td></tr>
     <tr><td><input type="checkbox" checked="checked"> Remember me</td></tr>
     <tr><td><p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p></td></tr>
   </tr>

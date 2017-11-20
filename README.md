@@ -1,6 +1,6 @@
 # COP 4813/COP 5819: Internet Programming
 
-##Group Project
+##  Group Project
 
 ### Delivery Instructions
 After completing the assignment, you are to submit a zip file containing all the source code and documentation to your group project solution. Include a read me file that has a link to the assignment on the server with any necessary credentials to log into the server. Additionally, the file should contain links to any resources (backgrounds, images, graphics, etc) that you found on the Internet that were used in this assignment.

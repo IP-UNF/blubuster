@@ -10,6 +10,8 @@
   </script>
   <?php
   require 'db.class.php';
+
+  //gets all the movies one by one and inserts them into the html table
   function getOneMovie()
   {
       $res = DB::get()->prepare('SELECT COUNT(*) FROM movie');

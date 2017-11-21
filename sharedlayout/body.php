@@ -17,7 +17,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./inventory.php">Add Inventory</a>
-        </li>  
+        </li>
           <?php
         if(isset($_SESSION['validated']) !="")
           {
@@ -50,9 +50,14 @@
 
       <h1 class="my-4">BluBuster</h1>
       <div class="list-group">
-        <a href="#" class="list-group-item">Comedy</a>
-        <a href="#" class="list-group-item">Horror</a>
-        <a href="#" class="list-group-item">Sci-Fi</a>
+        <a href="./genre.php?genre=action" class="list-group-item">Action</a>
+        <a href="./genre.php?genre=adventure" class="list-group-item">Adventure</a>
+        <a href="./genre.php?genre=comedy" class="list-group-item">Comedy</a>
+        <a href="./genre.php?genre=crime" class="list-group-item">Crime</a>
+        <a href="./genre.php?genre=drama" class="list-group-item">Drama</a>
+        <a href="./genre.php?genre=fantasy" class="list-group-item">Fantasy</a>
+        <a href="./genre.php?genre=thriller" class="list-group-item">Thriller</a>
+        <a href="./genre.php?genre=sci-fi" class="list-group-item">Sci-Fi</a>
       </div>
 
     </div>

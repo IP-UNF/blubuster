@@ -7,7 +7,7 @@
 	}
   $_SESSION['Email']= $_POST['Email'];
   $Email = $_POST['Email'];
-	$Password = $_POST['Password'];
+	$Password =$_POST['Password'];
   $sqlCount ="SELECT COUNT(Email) FROM customers where Email ='$Email'";
   $res = DB::get()->prepare($sqlCount);
   $res->execute();
@@ -19,7 +19,7 @@
   {
     while($row = $result->fetch())
     {
-      if ((strcmp ($Email,$row["Email"])==0) &&  (strcmp ($Password,$row["Password"])==0))
+      if ((strcmp ($Email,$row["Email"])==0) && (password_verify($Password,$row['Password'])))
   	   {
   		     header("Location: admin.php");
            $_SESSION["validated"]=true;

@@ -1,5 +1,5 @@
 
-<?php include 'header.php';?>
-<?phpsession_start();?>
-<?php include 'body.php';?>
-<?php include 'footer.php';?>
+<?php include './sharedlayout/header.php';?>
+<?php session_start();?>
+<?php include './sharedlayout/body.php';?>
+<?php include './sharedlayout/footer.php';?>

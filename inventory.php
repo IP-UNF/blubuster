@@ -1,4 +1,8 @@
-<?php include 'header.php';?>
+<?php
+session_start();
+include './sharedlayout/header.php'
+
+?>
   <script>
   	function updateRecord()
   	{
@@ -12,7 +16,7 @@
     }
   </script>
 </head>
-  <?php include'body.php';?>
+  <?php include'./sharedlayout/body.php';?>
 <div class="container">
 <div id="movies" class="row"></div>
 </div>
@@ -68,4 +72,4 @@ $result =DB::get()->query($sql);
 </form>
 </div>
 </div>
-<?php include 'footer.php';?>
+<?php include './sharedlayout/footer.php';?>

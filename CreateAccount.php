@@ -1,6 +1,6 @@
-<?php include 'header.php';?>
+<?php include './sharedlayout/header.php';?>
 <?phpsession_start();?>
-<?php include 'body.php';?>
+<?php include './sharedlayout/body.php';?>
 <form action="./insertCustomer.php" method="post">
   <div class="container">
     <table class ="table">
@@ -41,4 +41,4 @@
     </div>
   </div>
 </form>
-<?php include 'footer.php';?>
+<?php include './sharedlayout/footer.php';?>

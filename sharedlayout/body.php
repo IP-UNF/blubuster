@@ -17,16 +17,25 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./inventory.php">Add Inventory</a>
-        </li>
+        </li>  
+          <?php
+        if(isset($_SESSION['validated']) !="")
+          {
+            echo'
+          <li class="nav-item">
+              <a class="nav-link" href="./logout.php">Logout</a>
+          </li>';
+          } else
+          {
+            echo'
         <li class="nav-item">
           <a class="nav-link" href="./CreateAccount.php">Create Account</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./login.php">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./logout.php">Logout</a>
-        </li>
+        </li>';
+          }
+        ?>
       </ul>
     </div>
   </div>

@@ -21,9 +21,8 @@
     {
       if ((strcmp ($Email,$row["Email"])==0) && (password_verify($Password,$row['Password'])))
   	   {
+            $_SESSION["validated"]=$Email;
   		     header("Location: admin.php");
-           $_SESSION["validated"]=true;
-  		       //echo "UserName is ". $userNameFile . " Password is ". $passwordFile. " From user ". $password;
   	    }
         else
         {

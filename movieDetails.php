@@ -5,7 +5,7 @@
   }
 </script>
 <?php
-include 'header.php';
+include './sharedlayout/header.php';
 require 'db.class.php';
 session_start();
 $MovieID=$_COOKIE["MovieID"];
@@ -37,7 +37,7 @@ $result = DB::get()->query($sql);
     $result=null;
 ?>
 </head>
-  <?php include'body.php';?>
+  <?php include'./sharedlayout/body.php';?>
 
   <form action='' method='get'>
     <input type='hidden' value='<?php echo $MovieID; ?>' name='MovieID'>
@@ -83,7 +83,7 @@ $result = DB::get()->query($sql);
   </tr>
   <tr>
     <td>Metascore:</td><td><?php echo $Metascore; ?></td>
-  </tr> 
+  </tr>
   <tr>
     <td>imdbRating:</td><td><?php echo $imdbRating; ?></td>
   </tr>
@@ -108,4 +108,4 @@ $result = DB::get()->query($sql);
     <tr>
       <input type='button' value='Add to Cart' onClick='addToCart()'>
     </tr>
-<?php include 'footer.php';?>
+<?php include './sharedlayout/footer.php';?>

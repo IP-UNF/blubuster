@@ -1,7 +1,7 @@
 
-<?php include 'header.php';?>
+<?php include './sharedlayout/header.php';?>
 <?php session_start();?>
-<?php include 'body.php';?>
+<?php include './sharedlayout/body.php';?>
 <form action="authenticate.php" method="post">
 <table>
 <tr>
@@ -22,4 +22,4 @@ if($error == 1)
 elseif ($error == 2)
   echo "You must log in first.";
 ?>
-<?php include 'footer.php';?>
+<?php include './sharedlayout/footer.php';?>

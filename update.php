@@ -1,6 +1,6 @@
 
 <?php
-include 'header.php';
+include './sharedlayout/header.php';
 require 'db.class.php';
 $MovieID=$_GET['MovieID'];
 
@@ -33,7 +33,7 @@ $result = DB::get()->query($sql);
     $result=null;
 ?>
 </head>
-<?php include'body.php';?>
+<?php include'./sharedlayout/body.php';?>
   <form action='update_p.php' method='get'>
     <input type='hidden' value='<?php echo $MovieID; ?>' name='MovieID'>
   <table>
@@ -111,4 +111,4 @@ $result = DB::get()->query($sql);
   </table>
   </form>
 </form>
-<?php include 'footer.php';?>
+<?php include './sharedlayout/footer.php';?>

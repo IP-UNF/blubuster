@@ -1,11 +1,11 @@
 <?php
 session_start();
-if($_SESSION['validated'] !="true")
+if($_SESSION['validated'] ="")
 {
   header("Location: login.php?error=2");
 }
-include'header.php';
-include'body.php';
+include'./sharedlayout/header.php';
+include'./sharedlayout/body.php';
 echo "welcome admin";
-include'footer.php';
+include'./sharedlayout/footer.php';
 ?>

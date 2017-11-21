@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php session_start();?>
-<?php include 'header.php';?>
+<?php include './sharedlayout/header.php';?>
 <script>
   function movieDetails(MovieID)
   {
@@ -42,7 +42,7 @@
     }
   ?>
   </head>
-    <?php include'body.php';?>
+    <?php include'./sharedlayout/body.php';?>
           <div class="row">
               <?php getOneMovie();?>
-  <?php include 'footer.php';?>
+  <?php include './sharedlayout/footer.php';?>

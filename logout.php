@@ -1,13 +1,13 @@
 <?php
         session_start();
 
-        if($_SESSION['validated'] != "true")
+        if($_SESSION['validated'] = "")
         {
                 header("Location: login.php?error=2");
         }
-        include'header.php';
-        include'body.php';
+        include'./sharedlayout/header.php';
+        include'./sharedlayout/body.php';
 	      echo "Good bye, ". $_SESSION['Email'];
   	    session_destroy();
-        include'footer.php';
+        include'./sharedlayout/footer.php';
 ?>

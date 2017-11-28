@@ -1,8 +1,11 @@
 <script>
-  function addToCart()
-  {
-
-  }
+function addToCart(){
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';'); //split cookie
+    var c = ca[1]; //extract movie ID
+    var movieID = c.slice(9,11);  //get only the number
+    window.location.href = "/cart.php";
+}
 </script>
 <?php
 include './sharedlayout/header.php';
@@ -104,8 +107,15 @@ $result = DB::get()->query($sql);
     </tr>
   </table>
   </form>
+<?php
+if(isset($_SESSION['validated']) != ''){ echo "
   <table class =table>
     <tr>
       <input type='button' value='Add to Cart' onClick='addToCart()'>
     </tr>
-<?php include './sharedlayout/footer.php';?>
+    ";
+  }
+  else{
+    echo "";
+  }
+include './sharedlayout/footer.php';?>

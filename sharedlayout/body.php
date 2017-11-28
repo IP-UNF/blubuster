@@ -59,7 +59,11 @@
         <a href="./genre.php?genre=thriller" class="list-group-item">Thriller</a>
         <a href="./genre.php?genre=sci-fi" class="list-group-item">Sci-Fi</a>
       </div>
-
+      <div class="col-lg-3">
+        <a class="twitter-timeline" data-width="800" data-height="400" href="https://twitter.com/blubustervideo?ref_src=twsrc%5Etfw">Tweets by blubustervideo</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a href="https://twitter.com/blubustervideo?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @blubustervideo</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a href="https://twitter.com/intent/tweet?screen_name=blubustervideo&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @blubustervideo</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
     </div>
     <!-- /.col-lg-3 -->
 

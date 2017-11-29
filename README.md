@@ -48,3 +48,4 @@ for school server or put in the location of your own ini file with db, password,
 ### References
 1. https://startbootstrap.com/template-overviews/shop-homepage/
 2. banner images hulu.com
+3. Comapany logo https://www.freelogodesign.org/

@@ -1,6 +1,6 @@
-<?php include './sharedlayout/header.php';
+<?php session_start();
+include './sharedlayout/header.php';
 include './sharedlayout/body.php';
-session_start();
 require 'db.class.php';
 $MovieID=$_COOKIE["MovieID"];
 $sql = "SELECT Title,Poster,Price FROM movie Where MovieID = " .$MovieID;
@@ -13,15 +13,10 @@ while($row = $result->fetch()){
 
 ?>
 <head>
-<script type="text/javascript" src="js/checkout.js">
-
-var price = <?php echo $price ?>;
-var quantity = document.getElementById("quantity").value;
-
-</script>
+<script type="text/javascript" src="js/checkout.js" ></script>
 </head>
 
-<body>
+<body onload="itemTotal(price.innerHTML, quantity.innerHTML)">
   <table class="table table-bordered" name="movieSelected">
     <thead>
       <tr>
@@ -37,8 +32,8 @@ var quantity = document.getElementById("quantity").value;
         <td><img src="<?php echo $poster ?>" width="100" height="150"></td>
         <td style="center;"><?php echo $title ?></td>
         <td><p id="price"><?php echo $price ?></p></td>
-        <td><input type="textbox" id="quantity" value="1"><button type="btn btn-primary" onclick="updateQuantity(price, quantity)">Update</button></td>
-        <td><p id="itemTotal"><script>document.getElementById("itemTotal").innerHTML = itemTotal(price,quantity);</script></p></td>
+        <td><input type="textbox" id="quantity" value ="1" ><button type="btn btn-primary" onclick="itemTotal(price.innerHTML, quantity.innerHTML)">Update</button></td>
+        <td><p id="itemTotal"></p></td>
       </tr>
       <tr>
         <td></td>
@@ -61,8 +56,7 @@ var quantity = document.getElementById("quantity").value;
       <div class="total">
       <h2>Subtotal:</h2>
       </div>
-      <span class="subtotal">
-        $ <script>subTotal(price, quantity)</script>
+      <span class="subtotal" id ="subtotal">
       </span>
       <div class="bfb"><br>
         <a class="btn btn-primary" href="/checkout">Checkout</a>

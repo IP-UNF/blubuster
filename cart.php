@@ -1,18 +1,28 @@
-<?php session_start();
+<?php require 'movieClass.php';
+session_start();
 include './sharedlayout/header.php';
 include './sharedlayout/body.php';
 require 'db.class.php';
 $MovieID=$_COOKIE["MovieID"];
-$sql = "SELECT Title,Poster,Price FROM movie Where MovieID = " .$MovieID;
-$result = DB::get()->query($sql);
-while($row = $result->fetch()){
-  $price = $row["Price"];
-  $poster =$row["Poster"];
-  $title = $row["Title"];
+$total;
+
+//checks if any movies are in the cart yet
+if (!isset($_SESSION['cart']))
+{
+ $_SESSION['cart'] = array();
 }
+$newMovie = new Movie($MovieID);
+array_push($_SESSION['cart'],$newMovie);
 
 ?>
 <head>
+<?php function lineItemTotal($price)
+{
+
+    $_SESSION['subTotal'] = $_SESSION['subTotal']+ $price;
+}
+
+?>
 <script type="text/javascript" src="js/checkout.js" ></script>
 </head>
 
@@ -23,32 +33,20 @@ while($row = $result->fetch()){
         <th scope="col">Movie</th>
         <th scope="col">Title</th>
         <th scope="col">Price</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Total For Item</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><img src="<?php echo $poster ?>" width="100" height="150"></td>
-        <td style="center;"><?php echo $title ?></td>
-        <td><p id="price"><?php echo $price ?></p></td>
-        <td><input type="textbox" id="quantity" value ="1" ><button type="btn btn-primary" onclick="itemTotal(price.innerHTML, quantity.innerHTML)">Update</button></td>
-        <td><p id="itemTotal"></p></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <?php
+      foreach ($_SESSION['cart'] as $movie ) {
+
+        echo '
+                  <tr>
+                  <td><img src='.$movie->poster.'> width="100" height="150"></td>
+                  <td>'.$movie->title.'</td>
+                  <td><p id="price">'.$movie->price.'</td>
+                  </tr>';
+
+      } lineItemTotal($movie->price); //calculates subTotal?>
     </tbody>
   </table>
   <div class="complete_cart">
@@ -57,9 +55,12 @@ while($row = $result->fetch()){
       <h2>Subtotal:</h2>
       </div>
       <span class="subtotal" id ="subtotal">
+      <?php  echo $_SESSION['subTotal'];?>
       </span>
       <div class="bfb"><br>
         <a class="btn btn-primary" href="/checkout">Checkout</a>
+        <a class="btn btn-primary" onclick="clearCart()">Empty Cart</a>
+
       </div>
     </div><br>
 

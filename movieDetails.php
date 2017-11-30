@@ -4,7 +4,7 @@ function addToCart(){
     var ca = decodedCookie.split(';'); //split cookie
     var c = ca[1]; //extract movie ID
     var movieID = c.slice(9,11);  //get only the number
-    window.location.href = "../blubuster/cart.php";
+    window.location.href = "../cart.php";
 }
 </script>
 <?php

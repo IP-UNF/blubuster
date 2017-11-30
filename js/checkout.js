@@ -24,3 +24,7 @@ function itemTotal(price, quantity){
   subTotal(price, quantity);
   return total;
 }
+
+function clearCart(){
+  window.location ="../clearcart.php";
+}

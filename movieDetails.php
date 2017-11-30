@@ -1,12 +1,4 @@
-<script>
-function addToCart(){
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';'); //split cookie
-    var c = ca[1]; //extract movie ID
-    var movieID = c.slice(9,11);  //get only the number
-    window.location.href = "../cart.php";
-}
-</script>
+
 <?php
 include './sharedlayout/header.php';
 require 'db.class.php';
@@ -117,5 +109,11 @@ if(isset($_SESSION['validated']) != ''){ echo "
   }
   else{
     echo "";
+  }?>
+  <script>
+  function addToCart()
+  {
+        window.open("cart.php",'_self');
   }
-include './sharedlayout/footer.php';?>
+  </script>
+<?php include './sharedlayout/footer.php';?>

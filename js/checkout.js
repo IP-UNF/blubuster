@@ -26,5 +26,5 @@ function itemTotal(price, quantity){
 }
 
 function clearCart(){
-  window.location ="../clearcart.php";
+  window.location ="/BluBuster/clearcart.php";
 }

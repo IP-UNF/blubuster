@@ -1,23 +1,27 @@
 <?php require 'movieClass.php';
+$MovieID=$_COOKIE["MovieID"];
 session_start();
 include './sharedlayout/header.php';
 include './sharedlayout/body.php';
 require 'db.class.php';
-$MovieID=$_COOKIE["MovieID"];
-$total;
+
 
 //checks if any movies are in the cart yet
 if (!isset($_SESSION['cart']))
 {
  $_SESSION['cart'] = array();
+ $_SESSION['subTotal'] = 0;
 }
+
 $newMovie = new Movie($MovieID);
+
 array_push($_SESSION['cart'],$newMovie);
 
 ?>
 <head>
 <?php function lineItemTotal($price)
 {
+
 
     $_SESSION['subTotal'] = $_SESSION['subTotal']+ $price;
 }
@@ -26,7 +30,7 @@ array_push($_SESSION['cart'],$newMovie);
 <script type="text/javascript" src="js/checkout.js" ></script>
 </head>
 
-<body onload="itemTotal(price.innerHTML, quantity.innerHTML)">
+<body>
   <table class="table table-bordered" name="movieSelected">
     <thead>
       <tr>
@@ -41,7 +45,7 @@ array_push($_SESSION['cart'],$newMovie);
 
         echo '
                   <tr>
-                  <td><img src='.$movie->poster.'> width="100" height="150"></td>
+                  <td><img src='.$movie->poster.' width="100" height="150"></td>
                   <td>'.$movie->title.'</td>
                   <td><p id="price">'.$movie->price.'</td>
                   </tr>';

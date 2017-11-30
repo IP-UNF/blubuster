@@ -62,6 +62,7 @@ array_push($_SESSION['cart'],$newMovie);
       <?php  echo $_SESSION['subTotal'];?>
       </span>
       <div class="bfb"><br>
+        <a class="btn btn-primary" href="./index.php">Add More to Cart </a>
         <a class="btn btn-primary" href="/checkout">Checkout</a>
         <a class="btn btn-primary" onclick="clearCart()">Empty Cart</a>
 

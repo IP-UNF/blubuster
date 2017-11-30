@@ -59,11 +59,11 @@ array_push($_SESSION['cart'],$newMovie);
       <h2>Subtotal:</h2>
       </div>
       <span class="subtotal" id ="subtotal">
-      <?php  echo $_SESSION['subTotal'];?>
+      $<?php  echo $_SESSION['subTotal'];?>
       </span>
       <div class="bfb"><br>
         <a class="btn btn-primary" href="./index.php">Add More to Cart </a>
-        <a class="btn btn-primary" href="/checkout">Checkout</a>
+        <a class="btn btn-primary" href="/checkout.php">Checkout</a>
         <a class="btn btn-primary" onclick="clearCart()">Empty Cart</a>
 
       </div>

@@ -8,6 +8,7 @@ class Movie {
       $this->poster =$row["Poster"];
       $this->title = $row["Title"];
     }
+    
     return $this;
   }
 }

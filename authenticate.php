@@ -22,7 +22,7 @@
       if ((strcmp ($Email,$row["Email"])==0) && (password_verify($Password,$row['Password'])))
   	   {
             $_SESSION["validated"]=$Email;
-  		     header("Location: admin.php");
+  		     header("Location: index.php");
   	    }
         else
         {

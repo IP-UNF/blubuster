@@ -21,5 +21,7 @@ if($error == 1)
   echo "Invalid credentials";
 elseif ($error == 2)
   echo "You must log in first.";
+	elseif ($error == 3)
+	  echo "Enter a valid email.";
 ?>
 <?php include './sharedlayout/footer.php';?>

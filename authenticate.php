@@ -30,5 +30,8 @@
   	    }
     }
   }
+  else {
+    header("Location: login.php?error=3");
+  }
 
 ?>

@@ -63,7 +63,7 @@ array_push($_SESSION['cart'],$newMovie);
       </span>
       <div class="bfb"><br>
         <a class="btn btn-primary" href="./index.php">Add More to Cart </a>
-        <a class="btn btn-primary" href="/checkout.php">Checkout</a>
+        <a class="btn btn-primary" href="./checkout.php">Checkout</a>
         <a class="btn btn-primary" onclick="clearCart()">Empty Cart</a>
 
       </div>

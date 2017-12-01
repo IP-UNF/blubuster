@@ -43,8 +43,12 @@ All groups are required to provide basic software documentation for their websit
 ## Created by team BluDevils for COP4813
 
 ### Install instructions
-replace **'D:\xampp\htdocs\database.ini'** with **/home/group1/database.ini** in the db.class.php file
+1. replace **'D:\xampp\htdocs\database.ini'** with **/home/group1/database.ini** in the db.class.php file
 for school server or put in the location of your own ini file with db, password, and user.
+2. replace **'D:\xampp\htdocs\database.ini'** with **/home/group1/database.ini** in the boot.php file
+for school server or put in the location of your own ini file with db, password, and user this fille must also contain your braintree apis.
+3. you can use https://developers.braintreepayments.com/guides/credit-cards/testing-go-live/php for fake credit cards to enter to test braintree sandbox
+
 ### References
 1. https://startbootstrap.com/template-overviews/shop-homepage/
 2. banner images hulu.com

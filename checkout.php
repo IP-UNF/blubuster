@@ -4,6 +4,8 @@ include './sharedlayout/header.php';
 include './sharedlayout/body.php';
 require 'db.class.php';
 ?>
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <!-- braintree -->
 <script src="https://js.braintreegateway.com/js/braintree-2.31.0.min.js"></script>

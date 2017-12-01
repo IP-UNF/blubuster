@@ -16,6 +16,7 @@ require "db.class.php";
     if ($num_rows > 0){
       while($row = $results->fetch())
       {
+        $CustomerID=$row['CustomerID'];
         $FirstName=$row['FirstName'];
         $LastName=$row['LastName'];
         $address= $row['StreetAddress'];
@@ -24,6 +25,7 @@ require "db.class.php";
         $zipCode=$row['ZipCode'];
       }
       $results=null;
+
     }
 
 if (empty($_POST['payment_method_nonce'])) {
@@ -58,15 +60,22 @@ if ($result->success === true) {
 <?php include './sharedlayout/body.php';?>
 <!-- displays the list of billing and customer information for confirmation -->
 <body style="text-align: center; margin-top: 100px;">
-    <form class="payment-form">
-        <label for="ID" class="heading">Transaction ID</label><br>
-        <input type="text" disabled="disabled" name="ID" id="ID" value="<?php echo $result->transaction->id ;?>"><br><br>
+    <form class="payment-form" action="./confirmedPayment.php" method="post">
 
-        <label for="bFirstName" class="heading">Billing First Name</label><br>
-        <input type="text" disabled="disabled" name="bFirstName" id="bFirstName" value="<?php echo $result->transaction->customer['firstName'] ;?>"><br><br>
+        <label for="CustomerID" class="heading">Customer ID</label><br>
+        <input type="text" readonly="readonly" name="CustomerID" id="CustomerID" value="<?php echo $CustomerID;?>"><br><br>
 
-        <label for="blastName" class="heading">Billing Last Name</label><br>
-        <input type="text" disabled="disabled" name="bLastName" id="bLastName" value="<?php echo $result->transaction->customer['lastName'] ;?>"><br><br>
+        <label for="OrderDetail" class="heading">Order Details</label><br>
+        <input type="text" readonly="readonly" name="OrderDetail" id="OrderDetail" value="<?php echo $FirstName;?>"><br><br>
+
+        <label for="BTConfimNumber" class="heading">Transaction ID</label><br>
+        <input type="text" readonly="readonly" name="BTConfimNumber" id="BTConfimNumber" value="<?php echo $result->transaction->id ;?>"><br><br>
+
+        <label for="BillingFirstName" class="heading">Billing First Name</label><br>
+        <input type="text" readonly="readonly"name="BillingFirstName" id="BillingFirstName" value="<?php echo $result->transaction->customer['firstName'] ;?>"><br><br>
+
+        <label for="BillingLastName" class="heading">Billing Last Name</label><br>
+        <input type="text" readonly="readonly" name="BillingLastName" id="BillingLastName" value="<?php echo $result->transaction->customer['lastName'] ;?>"><br><br>
 
         <label for="FirstName" class="heading">Account First Name</label><br>
         <input type="text" disabled="disabled" name="FirstName" id="FirstName" value="<?php echo $FirstName?>"><br><br>
@@ -74,10 +83,10 @@ if ($result->success === true) {
         <label for="lastName" class="heading">Account Last Name</label><br>
         <input type="text" disabled="disabled" name="LastName" id="LastName" value="<?php echo $LastName?>"><br><br>
 
-        <label for="amount" class="heading">Amount (USD)</label><br>
-        <input type="text" disabled="disabled" name="amount" id="amount" value="<?php echo $result->transaction->amount ." " . $result->transaction->currencyIsoCode ;?>"><br><br>
+        <label for="Total" class="heading">Amount (USD)</label><br>
+        <input type="text" readonly="readonly" name="Total" id="Total" value="<?php echo $result->transaction->amount ." " . $result->transaction->currencyIsoCode ;?>"><br><br>
 
-        <label for="amount" class="heading">Street Address</label><br>
+        <label for="address" class="heading">Street Address</label><br>
         <input type="text" disabled="disabled" name="amount" id="address" value="<?php echo $address; ?>"><br><br>
 
         <label for="city" class="heading">City</label><br>
@@ -91,11 +100,12 @@ if ($result->success === true) {
 
         <label for="status" class="heading">Status</label><br>
         <input type="text" disabled="disabled" name="status" id="status" value="Successful"><br><br>
-
-
         <br><br>
 
-
+    <div class="clearfix">
+      <button type="button"  class="cancelbtn">Cancel</button>
+      <button type="submit" class="submit">Submit</button>
+    </div>
     </form>
 <?php include './sharedlayout/footer.php'; ?>
 </body>

@@ -118,6 +118,7 @@ require 'db.class.php';
     </thead>
   </table>
   <body style="text-align: center; margin-top: 100px;">
+    <a href="https://developers.braintreepayments.com/guides/credit-cards/testing-go-live/php" target="_blank">Fake Credit cards to use in sandbox</a>
       <form action="payment.php" method="post" class="payment-form">
           <label for="firstName" class="heading">First Name</label><br>
           <input type="text" name="firstName" id="firstName"><br><br>

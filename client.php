@@ -37,7 +37,7 @@ if ($num_rows > 0){
 <h1>Use this area to update your account information</h1>
 <fieldset>
   <legend>Personal Information</legend>
-  <form action="/updateAccount.php" method="post" >
+  <form action="updateAccount.php" method="post" >
   <div class="form-group">
     <label for="email">Email address:</label>
     <input type="email" class="form-control" name="email" value="<?php echo $Email ?>" required>
@@ -71,7 +71,7 @@ if ($num_rows > 0){
 </div><br>
 <div class="form-group">
   <label for="id">Your Unique ID</label>
-  <input type="text" class="form-control" name="CustomerID" value="<?php echo $CustomerID ?>" disabled>
+  <input type="text" class="form-control" name="CustomerID" value="<?php echo $CustomerID ?>" readonly="readonly">
 </div><br>
 
 <button type="submit" class="btn btn-primary">Update</button>

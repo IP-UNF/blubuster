@@ -23,6 +23,9 @@
           {
             echo'
           <li class="nav-item">
+              <a class="nav-link" href="./client.php">My Account</a>
+          </li>
+          <li class="nav-item">
               <a class="nav-link" href="./logout.php">Logout</a>
           </li>';
           } else

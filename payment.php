@@ -62,11 +62,11 @@ if ($result->success === true) {
 <body style="text-align: center; margin-top: 100px;">
     <form class="payment-form" action="./confirmedPayment.php" method="post">
 
-        <label for="CustomerID" class="heading">Customer ID</label><br>
-        <input type="text" readonly="readonly" name="CustomerID" id="CustomerID" value="<?php echo $CustomerID;?>"><br><br>
 
-        <label for="OrderDetail" class="heading">Order Details</label><br>
-        <input type="text" readonly="readonly" name="OrderDetail" id="OrderDetail" value="<?php echo $FirstName;?>"><br><br>
+        <input type="hidden"  readonly="readonly" name="CustomerID" id="CustomerID" value="<?php echo $CustomerID;?>"><br><br>
+
+
+        <input type="hidden" readonly="readonly" name="OrderDetail" id="OrderDetail" value="<?php echo $FirstName;?>"><br><br>
 
         <label for="BTConfimNumber" class="heading">Transaction ID</label><br>
         <input type="text" readonly="readonly" name="BTConfimNumber" id="BTConfimNumber" value="<?php echo $result->transaction->id ;?>"><br><br>

@@ -15,6 +15,9 @@ $sth ->bindParam(':BillingLastName',$_POST['BillingLastName']);
 $sth ->bindParam(':BTConfimNumber',$_POST['BTConfimNumber']);
 $sth ->bindParam(':Total',$_POST['Total']);
 $sth ->execute();
+unset($_SESSION['cart']);
+unset($_SESSION['subTotal']);
+unset($_SESSION['total']);
 header('Location: accountOrders.php');
 $sth =null;
 ?>

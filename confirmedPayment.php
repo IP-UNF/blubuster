@@ -15,6 +15,6 @@ $sth ->bindParam(':BillingLastName',$_POST['BillingLastName']);
 $sth ->bindParam(':BTConfimNumber',$_POST['BTConfimNumber']);
 $sth ->bindParam(':Total',$_POST['Total']);
 $sth ->execute();
-header('Location: index.php');
+header('Location: accountOrders.php');
 $sth =null;
 ?>

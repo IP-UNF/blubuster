@@ -21,10 +21,13 @@
           <?php
         if(isset($_SESSION['validated']) !="")
           {
-            echo'
-          <li class="nav-item">
-              <a class="nav-link" href="./client.php">My Account</a>
-          </li>
+            echo'<li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Account</a>
+                <ul class="dropdown-menu">
+                  <li><a href="./client.php">Update Account</a></li>
+                  <li><a href="./accountOrders.php">My Orders</a></li>
+                </ul>
+                </li>
           <li class="nav-item">
               <a class="nav-link" href="./logout.php">Logout</a>
           </li>';

@@ -30,7 +30,7 @@ if ($num_rows > 0){
     $BillingLastName=$row['BillingLastName'];
     $BTConfirmNumber=$row['BTConfirmNumber'];
     $Total=$row['Total'];
-    echo '<tr><td>'.$BTConfirmNumber.'</td><td>'.$BillingLastName.' '.$BillingLastName.'</td><td>'.  $address.'<br> '.  $city.'<br> '.  $state.'<br> '.$zipCode.'</td><td>'.$Total.'</td></tr>';
+    echo '<tr><td>'.$BTConfirmNumber.'</td><td>'.$BillingFirstName.' '.$BillingLastName.'</td><td>'.  $address.'<br> '.  $city.'<br> '.  $state.'<br> '.$zipCode.'</td><td>'.$Total.'</td></tr>';
   }
   $results=null;
   echo'</table>';
